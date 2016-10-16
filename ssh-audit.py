@@ -1651,7 +1651,7 @@ def audit(conf, sshv=None):
 	if err is None:
 		packet_type, payload = s.read_packet(sshv)
 		if packet_type < 0:
-			payload = str(payload).decode('utf-8')
+			payload = str(payload)
 			if payload == u'Protocol major versions differ.':
 				if sshv == 2 and conf.ssh1:
 					audit(conf, 1)
